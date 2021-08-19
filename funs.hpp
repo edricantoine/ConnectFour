@@ -1,8 +1,9 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-void bestMove(int& grid[5][5], char aiMark, char hMark);
+void bestMove(std::vector<std::vector<char> >& grid, char aiMark, char hMark);
 
-int minimax(int& grid[5][5], int depth, bool maxim, char aiMark, char hMark);
+int minimax(std::vector<std::vector<char> >& grid, int depth, bool maxim, char aiMark, char hMark);
 
-pair<bool, char> isWinner(int grid[5][5], char aiMark, char hMark);
+pair<bool, char> isWinner(std::vector<std::vector<char> >& grid, char aiMark, char hMark);
