@@ -9,39 +9,26 @@ int main() {
     char aiMark = 'X';
     char hMark = 'O';
 
-    std::vector<std::vector<char> > grid(5, std::vector<char>(5, '-'));
-  
-  
+    std::vector<char> grid(16, '-');
+   
 
-    bool hasWinner = false;
-
-    while(hasWinner == false) {
+    while(true) {
 
         pair<bool, char> result = isWinner(grid, aiMark, hMark);
+        cout << "  0 1 2 3\n";
+        int printRow = 0;
+        for(int i = 0; i < 16; i+= 4) {
+            cout << printRow << " " << grid[i] << " " << grid[i + 1] << " " << grid[i+2] << " " << grid[i+3] << "\n";
+            printRow++;
+        }
 
-	 cout << " ";
-
-            for(int i = 0; i < 5; i++) {
-	      cout <<  i << " ";
-            }
-            cout << endl;
-            
-
-            for(int i = 0; i < 5; i++) {
-	      cout << i << " ";
-                for(int j = 0; j < 5; j++) {
-                  
-                    cout << grid[i][j] << " ";
-                    
-                }
-                cout << endl;
-            }
+	 
 
 
         if(result.first != false) {
 
 
-	  if(result.second == aiMark) {
+	        if(result.second == aiMark) {
                 cout << "The computer wins!\n";
                 return 0;
             } else if (result.second == hMark) {
@@ -58,6 +45,7 @@ int main() {
 
             int playerR;
             int playerC;
+            int playerS;
 
             cout << "Choose the row (0-indexed) to place your piece in.\n";
             cin >> playerR;
@@ -65,13 +53,17 @@ int main() {
             cout << "Now, choose the column (0-indexed) to place your piece in.\n";
             cin >> playerC;
 
-            if(playerR < 0 || playerR >= 5 || playerC < 0 || playerC >= 5||grid[playerR][playerC] != '-') {
+            playerS = playerC + (4 * playerR);
+
+            if(playerR < 0 || playerR >= 4 || playerC < 0 || playerC >= 4||grid[playerS] != '-') {
                 cout << "Invalid input detected.\n";
             } else {
-                grid[playerR][playerC] = hMark;
+                
+                grid[playerS] = hMark;
 
 		
                 bestMove(grid, aiMark, hMark);
+		
 		
 	        
             }
