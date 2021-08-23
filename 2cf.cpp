@@ -8,6 +8,7 @@ int main() {
 
     char aiMark = 'X';
     char hMark = 'O';
+    bool goFirst = false;
 
     std::vector<char> grid(16, '-');
 

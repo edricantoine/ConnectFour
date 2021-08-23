@@ -4,6 +4,6 @@ using namespace std;
 
 void bestMove(std::vector<char>& grid, char aiMark, char hMark);
 
-int minimax(std::vector<char>& grid, int depth, bool maxim, char aiMark, char hMark);
+int minimax(std::vector<char>& grid, int depth, bool maxim, char aiMark, char hMark,);
 
 pair<bool, char> isWinner(std::vector<char>& grid, char aiMark, char hMark);
