@@ -12,7 +12,7 @@ int main() {
     std::vector<char> grid(9, '-');
     
 
-    bestMove(grid, aiMark, hMark);
+    
    
 
     while(true) {
