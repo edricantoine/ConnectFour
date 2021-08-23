@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "funs.hpp"
+#include "2funs.hpp"
 
 using namespace std;
 
@@ -9,8 +9,7 @@ int main() {
     char aiMark = 'X';
     char hMark = 'O';
 
-    std::vector<char> grid(9, '-');
-    
+    std::vector<char> grid(16, '-');
 
     bestMove(grid, aiMark, hMark);
    
@@ -18,10 +17,10 @@ int main() {
     while(true) {
 
         pair<bool, char> result = isWinner(grid, aiMark, hMark);
-        cout << "  0 1 2\n";
+        cout << "  0 1 2 3\n";
         int printRow = 0;
-        for(int i = 0; i < 9; i+= 3) {
-            cout << printRow << " " << grid[i] << " " << grid[i + 1] << " " << grid[i+2] << "\n";
+        for(int i = 0; i < 16; i+= 4) {
+            cout << printRow << " " << grid[i] << " " << grid[i + 1] << " " << grid[i+2] << " " << grid[i+3] << "\n";
             printRow++;
         }
 
@@ -56,9 +55,9 @@ int main() {
             cout << "Now, choose the column (0-indexed) to place your piece in.\n";
             cin >> playerC;
 
-            playerS = playerC + (3 * playerR);
+            playerS = playerC + (4 * playerR);
 
-            if(playerR < 0 || playerR >= 3 || playerC < 0 || playerC >= 3||grid[playerS] != '-') {
+            if(playerR < 0 || playerR >= 4 || playerC < 0 || playerC >= 4||grid[playerS] != '-') {
                 cout << "Invalid input detected.\n";
             } else {
                 
